@@ -6,7 +6,7 @@ package Model;
  * @author andre
  *
  */
-public interface ICarB {
+public interface 	ICarB {
 	
 	/**
 	 * Metodo para obtener el ultimo contacto al que se llamo
