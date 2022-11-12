@@ -39,7 +39,7 @@ public interface ICarC {
 	 * @return el valor cambiado de la frecuencia
 	 */
 	
-	public float SwitchFrequency(float frequency);
+	public boolean SwitchFrequency(boolean frequency);
 	
 	/**
 	 * Cambiar la estacion actual de la radio (Solo debe de cambiarse de 0.5 en 0.5)
@@ -121,7 +121,7 @@ public interface ICarC {
 	 * @return el valor cambiado de la conexion con el telefono
 	 */
 	
-	public boolean Connect_DisconnectPhone();
+	public boolean Connect_DisconnectPhone(boolean callstatus);
 	
 	/**
 	 * Metodo para obtener el estatus de conexion del telefono
