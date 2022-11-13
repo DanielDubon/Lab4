@@ -175,7 +175,7 @@ public class CarC extends CarRadio implements ICarC{
 
     @Override
     public boolean getPhoneConnectionStatus() {
-        return false;
+        return isInaCall();
     }
 
     @Override
@@ -185,7 +185,12 @@ public class CarC extends CarRadio implements ICarC{
 
     @Override
     public int getCallStatus() {
-        return 0;
+        if (isInaCall()){
+            return 1;
+
+        }else{
+        return 2;
+        }
     }
 
     @Override
@@ -195,16 +200,19 @@ public class CarC extends CarRadio implements ICarC{
 
     @Override
     public String PlaceCallOnHold() {
-        return null;
+        return "Persona en espera";
+
     }
 
     @Override
     public String endCall() {
-        return null;
+        setInaCall(false);
+        return "Llamada terminada";
     }
 
     @Override
     public String getWeatherForCast() {
-        return null;
+
+        return "Lluvioso";
     }
 }
