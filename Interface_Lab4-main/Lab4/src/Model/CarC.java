@@ -5,9 +5,12 @@ import java.util.ArrayList;
 public class CarC extends CarRadio implements ICarC{
 
 
+
     public CarC(boolean isON, int volume, boolean radioMode, ArrayList<Float> radios, ArrayList<ISong> songsCD, ArrayList<ISong> songsMP3, ArrayList<ISong> Spotify, int ReproductionType, ArrayList<String> contactos, int actualIndex, boolean inaCall) {
         super(isON, volume, radioMode, radios, songsCD, songsMP3, Spotify, ReproductionType, contactos, actualIndex, inaCall);
     }
+
+
 
     @Override
     public boolean SwitchRadioONOFF(boolean actual_state) {
@@ -39,7 +42,7 @@ public class CarC extends CarRadio implements ICarC{
     public boolean SwitchFrequency(boolean frequency) {
         if (frequency){
             setRadioMode(false);
-            return false;
+            return false ;
         }else {
             setRadioMode(true);
             return true;
