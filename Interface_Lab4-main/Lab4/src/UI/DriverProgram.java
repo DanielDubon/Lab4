@@ -1,10 +1,10 @@
 package UI;
 
 import Model.CarA;
+import Model.CarB;
 import Model.CarC;
 import Model.CarRadio;
 import Model.Song;
-
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -69,7 +69,7 @@ public class DriverProgram {
                                 break;
 
                             case 3:
-                                SaveStation();
+                                radio.SaveStation();
                                 break;
                         }
                         break;
@@ -87,6 +87,7 @@ public class DriverProgram {
                                 CarC.NextSong(radio);
                                 break;
                             case 3:
+                                System.out.println("Se esta reproduciendo la canción");
                                 break;
                         }
                         break;
@@ -99,30 +100,45 @@ public class DriverProgram {
                         opcion = in.nextInt();
                         switch(opcion){
                             case 1:
-                                Connect_DisconnectPhone();
+                                radio.Connect_DisconnectPhone();
                                 break;
                             case 2:
-                                getListofContacts();
+                                radio.getListofContacts();
                                 break;
                             case 3:
-                                if (getCallStatus() == 1){
+                                if (getCallStatus() == 1) {
                                     String PlaceCallOnHold();
                                 }else{
-                                    makeCall();
+                                    radio.makeCall();
                                 }
                                 break;
                             case 4:
-                                endCall();
+                                radio.endCall();
                                 break;
                         }
                         break;
                     case 6:
+                        System.out.println("Elija el modo de productividad que desea...");
+                        System.out.println("1. Planificar viajes");
+                        System.out.println("2. Ver tarjetas de presentación");
+                        System.out.println("3. Ver pronóstico del tiempo");
+                        opcion = in.nextInt();
+                        switch(opcion){
+                            case 1:
+                                TripPlanification();
+                                break;
+                            case 2:
+                                getPresentationCards();
+                                break;
+                            case 3:
+                                getWeatherForCast();
+                                break;;
+                        }
                         break;
                     case 7:
                         salir = true;
                         System.out.println("Gracias por visitarnos!...");
                         break;
-
                     default:
                         System.out.println("Elija una opción válida...");
                 }
