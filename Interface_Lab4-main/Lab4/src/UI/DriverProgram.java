@@ -1,9 +1,6 @@
 package UI;
 
-import Model.CarA;
-import Model.CarC;
-import Model.CarRadio;
-import Model.Song;
+import Model.*;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -13,7 +10,7 @@ public class DriverProgram {
 
     public static void main(String[] args) {
         ArrayList<Float> radios = new ArrayList<>();
-        ArrayList<Song> songs = new ArrayList<>();
+        ArrayList<ISong> songs = new ArrayList<>();
         ArrayList<String> contactos = new ArrayList<>();
         Scanner in = new Scanner(System.in);
         boolean salir = false;
@@ -22,28 +19,21 @@ public class DriverProgram {
 
         try {
             while (!salir) {
-
+                CarC car = new CarC(true,0,true,radios,songs,songs,songs,1,contactos,1,false);
                 System.out.println("-----Mercedes-Benz Co.-----");
                 System.out.println("-----MENU-----");
                 System.out.println("1. Encender/apagar radio");
                 System.out.println("2. Cambiar Volumen");
                 System.out.println("3. Modo Radio");
-
-
                 System.out.println("Elija una opcion a realizar...");
                 opcion = in.nextInt();
                 in.nextLine();
                 switch (opcion) {
                     case 1:
-                        if (isON==true){
-                            System.out.println("La radio está encendida");
-
-                        }else{
-                        System.out.println("La radio está apagada ");
-                    }
+                        car.SwitchRadioONOFF(car.isON());
                         break;
                     case 2:
-
+                        car.setVolume(car.getVolume()+1);
                         break;
                     case 3:
                         System.out.println("Elija el modo de radio a realizar...");
@@ -96,3 +86,5 @@ public class DriverProgram {
         }
     }
 }
+
+
