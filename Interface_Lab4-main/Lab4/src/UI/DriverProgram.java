@@ -20,6 +20,8 @@ public class DriverProgram {
         int opcion = 12;
         boolean isON = false;
         boolean RadiOn = false;
+        int volume = 0;
+        CarC radio = new CarC();
 
         try {
             while (!salir) {
@@ -30,6 +32,8 @@ public class DriverProgram {
                 System.out.println("3. Modo de Radio");
                 System.out.println("4. Modo de Reproducción");
                 System.out.println("5. Modo del Teléfono");
+                System.out.println("6. Modo Productividad");
+                System.out.println("7. Salir");
 
                 System.out.println("Elija una opcion a realizar...");
                 opcion = in.nextInt();
@@ -43,6 +47,7 @@ public class DriverProgram {
                         }
                         break;
                     case 2:
+
                         break;
                     case 3:
                         System.out.println("Elija el modo de radio a realizar...");
@@ -60,6 +65,11 @@ public class DriverProgram {
                                 }
                                 break;
                             case 2:
+
+                                break;
+
+                            case 3:
+                                SaveStation();
                                 break;
                         }
                         break;
@@ -71,8 +81,10 @@ public class DriverProgram {
                         opcion = in.nextInt();
                         switch(opcion){
                             case 1:
+                                CarRadio.getReproductionType();
                                 break;
                             case 2:
+                                CarC.NextSong(radio);
                                 break;
                             case 3:
                                 break;
@@ -87,27 +99,30 @@ public class DriverProgram {
                         opcion = in.nextInt();
                         switch(opcion){
                             case 1:
+                                Connect_DisconnectPhone();
                                 break;
                             case 2:
+                                getListofContacts();
                                 break;
                             case 3:
+                                if (getCallStatus() == 1){
+                                    String PlaceCallOnHold();
+                                }else{
+                                    makeCall();
+                                }
                                 break;
                             case 4:
+                                endCall();
                                 break;
                         }
                         break;
                     case 6:
                         break;
                     case 7:
+                        salir = true;
+                        System.out.println("Gracias por visitarnos!...");
                         break;
-                    case 8:
-                        break;
-                    case 9:
-                        break;
-                    case 10:
-                        break;
-                    case 11:
-                        break;
+
                     default:
                         System.out.println("Elija una opción válida...");
                 }
